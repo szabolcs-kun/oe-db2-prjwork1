@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "json-2-csv": "^3.10.3",
-    "mocker-data-generator": "^2.12.0"
+    "lodash": "^4.17.21",
+    "mocker-data-generator": "^2.12.0",
+    "node-fetch": "^2.6.1"
   }
 }

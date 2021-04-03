@@ -2,6 +2,8 @@
 import mocker from "mocker-data-generator";
 import fs from "fs";
 import converter from "json-2-csv";
+import nfetch from "node-fetch";
+import _ from "lodash";
 
 const storeData = (data, path) => {
   try {
@@ -28,6 +30,19 @@ const convertJsonToCsvFileAsync = async (jsonObject, fileName) => {
   var path = rootDirectory + "/" + fileName + ".csv";
 
   fs.writeFileSync(path, csvResult);
+};
+
+const getCountryDetailsAsync = async (countryCode) => {
+  const response = await nfetch(
+    "https://restcountries.eu/rest/v2/alpha/" + countryCode
+  );
+  const jsonResult = await response.json();
+
+  return {
+    countryCode: countryCode,
+    countryName: jsonResult.name,
+    region: jsonResult.region,
+  };
 };
 
 // Generates random date-time from interval
@@ -59,10 +74,6 @@ var country = {
   },
   countryName: {
     faker: "address.country",
-  },
-  regionId: {
-    hasOne: "regions",
-    get: "id",
   },
 };
 
@@ -324,7 +335,6 @@ var contact = {
 // Generating the mocked data set
 var result = mocker
   .mocker()
-  .schema("regions", region, 5)
   .schema("countries", country, 10)
   .schema("locations", location, 10)
   .schema("warehouses", warehouse, 20)
@@ -354,6 +364,18 @@ for (var i = 0; i < result.contacts.length; i++) {
   result.customers[relatedCustomerIndex].name =
     result.contacts[i].lastName + ", " + result.contacts[i].firstName;
 }
+
+// Update country names based on country code and create regions
+const countries = await Promise.all(result.countries.map(async c => await getCountryDetailsAsync(c.id)));
+const regions = _.uniq(countries.map(r => r.region)).map((a, i) => ({area: a, id: i}));
+
+result.countries.forEach(c => {
+    const country = countries.find(cs => cs.countryCode == c.id);
+    c.countryName = country.countryName;
+    c.regionId = regions.find(r => r.area == country.region).id;
+});
+
+result.regions = regions;
 
 // Generate CSV output files
 var key;
