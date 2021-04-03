@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import mocker from "mocker-data-generator";
 import fs from "fs";
+import converter from "json-2-csv";
 
 const storeData = (data, path) => {
   try {
@@ -10,6 +11,26 @@ const storeData = (data, path) => {
   }
 };
 
+const convertJsonToCsvFileAsync = async (jsonObject, fileName) => {
+  const rootDirectory = "./output";
+
+  const options = {
+    delimiter: { field: ";" },
+    useDateIso8601Format: true,
+  };
+
+  const csvResult = await converter.json2csvAsync(jsonObject, options);
+
+  if (!fs.existsSync(rootDirectory)) {
+    fs.mkdirSync(rootDirectory);
+  }
+
+  var path = rootDirectory + "/" + fileName + ".csv";
+
+  fs.writeFileSync(path, csvResult);
+};
+
+// Generates random date-time from interval
 const randomDate = (start, end, startHour, endHour) => {
   var date = new Date(+start + Math.random() * (end - start));
   var hour = (startHour + Math.random() * (endHour - startHour)) | 0;
@@ -17,10 +38,12 @@ const randomDate = (start, end, startHour, endHour) => {
   return date;
 };
 
+// Generates random integer from interval
 const randomIntFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
+// Schema model
 var region = {
   id: {
     incrementalId: 0,
@@ -39,7 +62,7 @@ var country = {
   },
   regionId: {
     hasOne: "regions",
-    get: "id"
+    get: "id",
   },
 };
 
@@ -54,7 +77,7 @@ var location = {
         " " +
         this.faker.address.citySuffix() +
         " " +
-        this.faker.random.number()
+        this.faker.datatype.number()
       );
     },
   },
@@ -69,7 +92,7 @@ var location = {
   },
   countryId: {
     hasOne: "countries",
-    get: "id"
+    get: "id",
   },
 };
 
@@ -84,7 +107,7 @@ var warehouse = {
   },
   locationId: {
     hasOne: "locations",
-    get: "id"
+    get: "id",
   },
 };
 
@@ -115,7 +138,7 @@ var product = {
   },
   categoryId: {
     hasOne: "productCategories",
-    get: "id"
+    get: "id",
   },
 };
 
@@ -125,11 +148,11 @@ var inventory = {
   },
   productId: {
     hasOne: "products",
-    get: "id"
+    get: "id",
   },
   warehouseId: {
     hasOne: "warehouses",
-    get: "id"
+    get: "id",
   },
 };
 
@@ -147,11 +170,11 @@ var orderItem = {
   },
   orderId: {
     hasOne: "orders",
-    get: "id"
+    get: "id",
   },
   productId: {
     hasOne: "products",
-    get: "id"
+    get: "id",
   },
 };
 
@@ -161,7 +184,7 @@ var order = {
   },
   customerId: {
     hasOne: "customers",
-    get: "id"
+    get: "id",
   },
   status: {
     function: function () {
@@ -179,7 +202,7 @@ var order = {
   },
   salesmanId: {
     hasOne: "employees",
-    get: "id"
+    get: "id",
   },
   orderDate: {
     function: function () {
@@ -250,7 +273,7 @@ var customer = {
         " " +
         this.faker.address.citySuffix() +
         " " +
-        this.faker.random.number() +
+        this.faker.datatype.number() +
         ", " +
         this.faker.address.city() +
         " " +
@@ -294,10 +317,11 @@ var contact = {
   },
   customerId: {
     hasOne: "customers",
-    get: "id"
+    get: "id",
   },
 };
 
+// Generating the mocked data set
 var result = mocker
   .mocker()
   .schema("regions", region, 5)
@@ -311,10 +335,28 @@ var result = mocker
   .schema("customers", customer, 50)
   .schema("orders", order, 50)
   .schema("orderItems", orderItem, 50)
-
   .schema("contacts", contact, 50)
   .buildSync();
 
-console.log(result.customers);
+// Setting the manager IDs with simulating orgchart tree in the employees
+result.employees[0].managerId = result.employees[0].id;
+for (var i = 1; i < result.employees.length; i++) {
+  result.employees[i].managerId =
+    result.employees[randomIntFromInterval(0, i - 1)].id;
+}
 
-// storeData(result,'output.json');
+// Setting the names in customers with inheriting it from the contacts
+for (var i = 0; i < result.contacts.length; i++) {
+  var relatedCustomerIndex = result.customers.findIndex(
+    (x) => x.id == result.contacts[i].customerId
+  );
+
+  result.customers[relatedCustomerIndex].name =
+    result.contacts[i].lastName + ", " + result.contacts[i].firstName;
+}
+
+// Generate CSV output files
+var key;
+for (key in result) {
+  await convertJsonToCsvFileAsync(result[key], key);
+}
