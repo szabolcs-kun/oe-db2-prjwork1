@@ -14,6 +14,7 @@
     "json-2-csv": "^3.10.3",
     "lodash": "^4.17.21",
     "mocker-data-generator": "^2.12.0",
+    "moment": "^2.29.1",
     "node-fetch": "^2.6.1"
   }
 }

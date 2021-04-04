@@ -4,21 +4,13 @@ import fs from "fs";
 import converter from "json-2-csv";
 import nfetch from "node-fetch";
 import _ from "lodash";
-
-const storeData = (data, path) => {
-  try {
-    fs.writeFileSync(path, JSON.stringify(data, null, 4));
-  } catch (err) {
-    console.error(err);
-  }
-};
+import moment from "moment";
 
 const convertJsonToCsvFileAsync = async (jsonObject, fileName) => {
   const rootDirectory = "./output";
 
   const options = {
-    delimiter: { field: ";" },
-    useDateIso8601Format: true,
+    useDateIso8601Format: false,
   };
 
   const csvResult = await converter.json2csvAsync(jsonObject, options);
@@ -30,53 +22,6 @@ const convertJsonToCsvFileAsync = async (jsonObject, fileName) => {
   var path = rootDirectory + "/" + fileName + ".csv";
 
   fs.writeFileSync(path, csvResult, "utf-8");
-};
-
-const fixIdsAndReferences = (data, ids, iterator, generatorSize) => {
-  data.forEach((d) => {
-    ids.forEach((id) => {
-      d[id] += iterator * generatorSize;
-    });
-  });
-  return data;
-};
-
-const getModelIds = (modelName) => {
-  switch (modelName) {
-    case "countries":
-      return [];
-      break;
-    case "locations":
-      return ["id"];
-      break;
-    case "warehouses":
-      return ["id", "locationId"];
-      break;
-    case "productCategories":
-      return ["id"];
-      break;
-    case "products":
-      return ["id", "categoryId"];
-      break;
-    case "inventories":
-      return ["id", "productId", "warehouseId"];
-      break;
-    case "employees":
-      return ["id"];
-      break;
-    case "customers":
-      return ["id"];
-      break;
-    case "orders":
-      return ["id", "customerId", "salesmanId"];
-      break;
-    case "orderItems":
-      return ["id", "orderId", "productId"];
-      break;
-    case "contacts":
-      return ["id", "customerId"];
-      break;
-  }
 };
 
 const getCountryDetailsAsync = async (countryCode) => {
@@ -207,9 +152,6 @@ var product = {
 };
 
 var inventory = {
-  id: {
-    incrementalId: 0,
-  },
   productId: {
     hasOne: "products",
     get: "id",
@@ -217,6 +159,11 @@ var inventory = {
   warehouseId: {
     hasOne: "warehouses",
     get: "id",
+  },
+  quantity: {
+    function: function () {
+      return randomIntFromInterval(0, 5000);
+    },
   },
 };
 
@@ -228,9 +175,6 @@ var orderItem = {
     function: function () {
       return randomIntFromInterval(1, 1000);
     },
-  },
-  unit_price: {
-    incrementalId: 0,
   },
   orderId: {
     hasOne: "orders",
@@ -280,14 +224,13 @@ var order = {
         "Payment pending",
       ];
       if (withinOneYearStatuses.includes(this.object.status)) {
-        return randomDate(
-          today.setDate(today.getDate() - 180),
-          new Date(),
-          0,
-          24
-        );
+        return moment(
+          randomDate(today.setDate(today.getDate() - 180), new Date(), 0, 24)
+        ).format("YYYY-MM-DD");
       } else {
-        return randomDate(new Date(1996, 1, 1), new Date(), 0, 24);
+        return moment(
+          randomDate(new Date(1996, 1, 1), new Date(), 0, 24)
+        ).format("YYYY-MM-DD");
       }
     },
   },
@@ -309,7 +252,7 @@ var employee = {
         this.object.firstName +
         "." +
         this.object.lastName +
-        "@contosofactory.com"
+        "@contosowholesale.com"
       );
     },
   },
@@ -318,7 +261,9 @@ var employee = {
   },
   hireDate: {
     function: function () {
-      return randomDate(new Date(1995, 1, 1), new Date(), 0, 24);
+      return moment(randomDate(new Date(1995, 1, 1), new Date(), 0, 24)).format(
+        "YYYY-MM-DD"
+      );
     },
   },
   jobTitle: {
@@ -401,66 +346,27 @@ var startDate = new Date();
 // Generating the mocked data set
 console.log("Mock generation has started: " + startDate.toLocaleString());
 
-
 var result = mocker
-.mocker()
-.schema("countries", country, 25)
-.schema("locations", location, 40)
-.schema("warehouses", warehouse, 40)
-.schema("productCategories", productCategory, 550)
-.schema("products", product, 1000000)
-.schema("inventories", inventory, 50)
-.schema("employees", employee, 150)
-.schema("customers", customer, 1000000)
-.schema("orders", order, 1000000)
-.schema("orderItems", orderItem, 1000000)
-.schema("contacts", contact, 1000000)
-.buildSync(function (error, data) {
-  if (error) {
-    throw error;
-  }
-  console.log(util.inspect(data, { depth: 10 }));
-});
+  .mocker()
+  .schema("countries", country, 25)
+  .schema("locations", location, 40)
+  .schema("warehouses", warehouse, 63)
+  .schema("productCategories", productCategory, 550)
+  .schema("products", product, 1000000)
+  .schema("inventories", inventory, 50)
+  .schema("employees", employee, 150)
+  .schema("customers", customer, 1000000)
+  .schema("orders", order, 1000000)
+  .schema("orderItems", orderItem, 1000000)
+  .schema("contacts", contact, 1000000)
+  .buildSync(function (error, data) {
+    if (error) {
+      throw error;
+    }
+    console.log(util.inspect(data, { depth: 10 }));
+  });
 
 console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
-
-/*
-var result = [];
-for (var i = 0; i < 5; i++) {
-  console.log("> Generating the " + (i + 1) + ". set of mock data.");
-  var tmp = mocker
-    .mocker()
-    .schema("countries", country, 25)
-    .schema("locations", location, 40)
-    .schema("warehouses", warehouse, 40)
-    .schema("productCategories", productCategory, 550)
-    .schema("products", product, 100000)
-    .schema("inventories", inventory, 50)
-    .schema("employees", employee, 150)
-    .schema("customers", customer, 100000)
-    .schema("orders", order, 100000)
-    .schema("orderItems", orderItem, 100000)
-    .schema("contacts", contact, 100000)
-    .buildSync(function (error, data) {
-      if (error) {
-        throw error;
-      }
-      console.log(util.inspect(data, { depth: 10 }));
-    });
-
-  var key;
-  for (key in tmp) {
-    if (key in result) {
-      result[key] = result[key].concat(
-        fixIdsAndReferences(tmp[key], getModelIds(key), i, tmp[key].length)
-      );
-    } else {
-      result[key] = tmp[key];
-    }
-  }
-  console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
-}
-*/
 
 // Setting the manager IDs with simulating orgchart tree in the employees
 console.log(
@@ -500,19 +406,37 @@ const regions = _.uniq(countries.map((r) => r.region)).map((a, i) => ({
   regionName: a,
 }));
 
-_.uniq(result.countries, function (item) {
-  return [item.id, item.countryName].join();
-}).forEach((c) => {
-  const country = countries.find((cs) => cs.countryCode == c.id);
-  c.countryName = country.countryName;
-  c.regionId = regions.find((r) => r.regionName == country.region).id;
-});
+result.countries = _.uniqBy(result.countries, c => c.id);
+result.countries.forEach((c) => {
+    const country = countries.find((cs) => cs.countryCode == c.id);
+    c.countryName = country.countryName;
+    c.regionId = regions.find((r) => r.regionName == country.region).id;
+  });
 
 result.regions = regions;
 
-var emptyRegionNameIndex = result.regions.findIndex((obj) => obj.regionName == "");
+var emptyRegionNameIndex = result.regions.findIndex(
+  (obj) => obj.regionName == ""
+);
 if (emptyRegionNameIndex != -1) {
   result.regions[emptyRegionNameIndex].regionName = "n/a";
+}
+
+console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
+
+// Setting the unit_price in order items table
+console.log("Setting the unit_price in order items table");
+var productMap = new Map(result.products.map((p) => [p.id, p]));
+
+for (var i = 0; i < result.orderItems.length; i++) {
+  var relatedProduct = productMap.get(result.orderItems[i].productId);
+
+  if (relatedProduct != undefined) {
+    result.orderItems[i].unitPrice =
+      Math.random() > 0.8
+        ? relatedProduct.standardCost * (1 - randomIntFromInterval(0, 20) / 100)
+        : relatedProduct.standardCost;
+  }
 }
 
 console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
