@@ -29,7 +29,54 @@ const convertJsonToCsvFileAsync = async (jsonObject, fileName) => {
 
   var path = rootDirectory + "/" + fileName + ".csv";
 
-  fs.writeFileSync(path, csvResult);
+  fs.writeFileSync(path, csvResult, "utf-8");
+};
+
+const fixIdsAndReferences = (data, ids, iterator, generatorSize) => {
+  data.forEach((d) => {
+    ids.forEach((id) => {
+      d[id] += iterator * generatorSize;
+    });
+  });
+  return data;
+};
+
+const getModelIds = (modelName) => {
+  switch (modelName) {
+    case "countries":
+      return [];
+      break;
+    case "locations":
+      return ["id"];
+      break;
+    case "warehouses":
+      return ["id", "locationId"];
+      break;
+    case "productCategories":
+      return ["id"];
+      break;
+    case "products":
+      return ["id", "categoryId"];
+      break;
+    case "inventories":
+      return ["id", "productId", "warehouseId"];
+      break;
+    case "employees":
+      return ["id"];
+      break;
+    case "customers":
+      return ["id"];
+      break;
+    case "orders":
+      return ["id", "customerId", "salesmanId"];
+      break;
+    case "orderItems":
+      return ["id", "orderId", "productId"];
+      break;
+    case "contacts":
+      return ["id", "customerId"];
+      break;
+  }
 };
 
 const getCountryDetailsAsync = async (countryCode) => {
@@ -56,6 +103,12 @@ const randomDate = (start, end, startHour, endHour) => {
 // Generates random integer from interval
 const randomIntFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+// Get date time diff
+
+const getTimeDiff = (start, end) => {
+  return new Date(Math.abs(end - start)).toISOString().slice(11, -1);
 };
 
 // Schema model
@@ -269,7 +322,18 @@ var employee = {
     },
   },
   jobTitle: {
-    faker: "name.jobTitle",
+    function: function () {
+      return this.faker.random.arrayElement([
+        "Sales Manager",
+        "Field Sales",
+        "Account Executive",
+        "Back-office Manager",
+        "Senior Sales Expert",
+        "Marketing Manager",
+        "Social Media Sales Expert",
+        "Ordering Manager",
+      ]);
+    },
   },
 };
 
@@ -332,53 +396,131 @@ var contact = {
   },
 };
 
+var startDate = new Date();
+
 // Generating the mocked data set
+console.log("Mock generation has started: " + startDate.toLocaleString());
+
+
 var result = mocker
-  .mocker()
-  .schema("countries", country, 10)
-  .schema("locations", location, 10)
-  .schema("warehouses", warehouse, 20)
-  .schema("productCategories", productCategory, 20)
-  .schema("products", product, 40)
-  .schema("inventories", inventory, 50)
-  .schema("employees", employee, 50)
-  .schema("customers", customer, 50)
-  .schema("orders", order, 50)
-  .schema("orderItems", orderItem, 50)
-  .schema("contacts", contact, 50)
-  .buildSync();
+.mocker()
+.schema("countries", country, 25)
+.schema("locations", location, 40)
+.schema("warehouses", warehouse, 40)
+.schema("productCategories", productCategory, 550)
+.schema("products", product, 1000000)
+.schema("inventories", inventory, 50)
+.schema("employees", employee, 150)
+.schema("customers", customer, 1000000)
+.schema("orders", order, 1000000)
+.schema("orderItems", orderItem, 1000000)
+.schema("contacts", contact, 1000000)
+.buildSync(function (error, data) {
+  if (error) {
+    throw error;
+  }
+  console.log(util.inspect(data, { depth: 10 }));
+});
+
+console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
+
+/*
+var result = [];
+for (var i = 0; i < 5; i++) {
+  console.log("> Generating the " + (i + 1) + ". set of mock data.");
+  var tmp = mocker
+    .mocker()
+    .schema("countries", country, 25)
+    .schema("locations", location, 40)
+    .schema("warehouses", warehouse, 40)
+    .schema("productCategories", productCategory, 550)
+    .schema("products", product, 100000)
+    .schema("inventories", inventory, 50)
+    .schema("employees", employee, 150)
+    .schema("customers", customer, 100000)
+    .schema("orders", order, 100000)
+    .schema("orderItems", orderItem, 100000)
+    .schema("contacts", contact, 100000)
+    .buildSync(function (error, data) {
+      if (error) {
+        throw error;
+      }
+      console.log(util.inspect(data, { depth: 10 }));
+    });
+
+  var key;
+  for (key in tmp) {
+    if (key in result) {
+      result[key] = result[key].concat(
+        fixIdsAndReferences(tmp[key], getModelIds(key), i, tmp[key].length)
+      );
+    } else {
+      result[key] = tmp[key];
+    }
+  }
+  console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
+}
+*/
 
 // Setting the manager IDs with simulating orgchart tree in the employees
+console.log(
+  "Setting the manager IDs with simulating orgchart tree in the employees"
+);
 result.employees[0].managerId = result.employees[0].id;
 for (var i = 1; i < result.employees.length; i++) {
   result.employees[i].managerId =
     result.employees[randomIntFromInterval(0, i - 1)].id;
 }
 
-// Setting the names in customers with inheriting it from the contacts
-for (var i = 0; i < result.contacts.length; i++) {
-  var relatedCustomerIndex = result.customers.findIndex(
-    (x) => x.id == result.contacts[i].customerId
-  );
+console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
 
-  result.customers[relatedCustomerIndex].name =
-    result.contacts[i].lastName + ", " + result.contacts[i].firstName;
+// Setting the names in customers with inheriting it from the contacts
+console.log(
+  "Setting the names in customers with inheriting it from the contacts"
+);
+var customerMap = new Map(result.customers.map((c) => [c.id, c]));
+for (var i = 0; i < result.contacts.length; i++) {
+  var relatedCustomer = customerMap.get(result.contacts[i].customerId);
+
+  if (relatedCustomer != undefined) {
+    result.customers[relatedCustomer.id].name =
+      result.contacts[i].firstName + " " + result.contacts[i].lastName;
+  }
 }
 
-// Update country names based on country code and create regions
-const countries = await Promise.all(result.countries.map(async c => await getCountryDetailsAsync(c.id)));
-const regions = _.uniq(countries.map(r => r.region)).map((a, i) => ({area: a, id: i}));
+console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
 
-result.countries.forEach(c => {
-    const country = countries.find(cs => cs.countryCode == c.id);
-    c.countryName = country.countryName;
-    c.regionId = regions.find(r => r.area == country.region).id;
+// Update country names based on country code and create regions
+console.log("Pulling real country-region data from a public API endpoint");
+const countries = await Promise.all(
+  result.countries.map(async (c) => await getCountryDetailsAsync(c.id))
+);
+const regions = _.uniq(countries.map((r) => r.region)).map((a, i) => ({
+  id: i,
+  regionName: a,
+}));
+
+_.uniq(result.countries, function (item) {
+  return [item.id, item.countryName].join();
+}).forEach((c) => {
+  const country = countries.find((cs) => cs.countryCode == c.id);
+  c.countryName = country.countryName;
+  c.regionId = regions.find((r) => r.regionName == country.region).id;
 });
 
 result.regions = regions;
 
+var emptyRegionNameIndex = result.regions.findIndex((obj) => obj.regionName == "");
+if (emptyRegionNameIndex != -1) {
+  result.regions[emptyRegionNameIndex].regionName = "n/a";
+}
+
+console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
+
 // Generate CSV output files
+console.log("Writing the results to CSV files");
 var key;
 for (key in result) {
   await convertJsonToCsvFileAsync(result[key], key);
 }
+console.log("[Total elapsed time:" + getTimeDiff(startDate, new Date()) + "]");
