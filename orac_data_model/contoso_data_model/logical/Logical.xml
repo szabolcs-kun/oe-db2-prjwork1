@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="36C652A4-D2A3-6E6C-200F-36A19D380E0F" mainViewID="2ABADACF-ACE0-523F-1E02-DA47B827EE10">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:36:39 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

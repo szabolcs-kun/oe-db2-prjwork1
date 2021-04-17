@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="contoso_data_model" id="99712F4D-7A11-FD06-01A3-54592F6F19D7" version="3.5">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:36:39 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<modelPersistence>2</modelPersistence>
+<capitalNames>false</capitalNames>
+<designId>99712F4D-7A11-FD06-01A3-54592F6F19D7</designId>
+</OSDM_Design>
