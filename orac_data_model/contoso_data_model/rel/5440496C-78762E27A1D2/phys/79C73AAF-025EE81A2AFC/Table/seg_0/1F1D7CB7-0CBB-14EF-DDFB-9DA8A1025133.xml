@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="LOCATIONS" directorySegmentName="seg_0" id="1F1D7CB7-0CBB-14EF-DDFB-9DA8A1025133">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:10 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<schemaObject>EF977320-FD15-FB31-87C3-A3F9734E952A</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>890E64BF-04D5-0E96-CEFB-20F49561ABD9</segment>
+<tableSpace>4970967E-0DD6-CA15-995B-48CA883A773D</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="POSTAL_CODE" id="20BA8E3F-1329-03E3-1CF7-50B1EE75ACBD">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOCATION_ID" id="3F1E55D6-3627-5A09-C119-279C293D84B3">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS" id="60EB998B-1E01-0580-A9AA-ED8A9EDF0C57">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STATE" id="8102EB43-9CB6-7FA0-5DA2-D6B799381EE8">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CITY" id="A284C455-4506-A577-136B-1DF9FB57F8D7">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COUNTRY_ID" id="EBA61A37-0566-63AA-B016-97CCE3671736">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_LOCATIONS_COUNTRIES" id="69F91F73-CB7C-E43A-6311-D8CA1E09C752">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:12 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="LOCATIONS_PK" id="F5BCB4FC-E35C-C4C7-5564-1037617C124F">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:12 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<schemaObject>EF977320-FD15-FB31-87C3-A3F9734E952A</schemaObject>
+<segment>6D7D2E75-F6E4-0A6D-1CC1-42177CC333F8</segment>
+<tableSpace>4970967E-0DD6-CA15-995B-48CA883A773D</tableSpace>
+<indexSegment>6D7D2E75-F6E4-0A6D-1CC1-42177CC333F8</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

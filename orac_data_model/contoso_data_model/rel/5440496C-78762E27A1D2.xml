@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="ora_db2-prj1" id="5440496C-DDA7-AC44-F515-78762E27A1D2" mainViewID="53EC19B2-CE9E-BAFF-C511-1C1396CEF24E">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:09 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>79C73AAF-E1A7-E669-7DF0-025EE81A2AFC</selectedRDBMSSite>
+<importConnectionStamps>
+<importConnectionStamp class="oracle.dbtools.crest.imports.DBConnectionStamp">
+<connName>ora_db2-prj1</connName>
+<connUser>CONTOSO</connUser>
+<connType>1</connType>
+</importConnectionStamp>
+</importConnectionStamps>
+</relationalModel>

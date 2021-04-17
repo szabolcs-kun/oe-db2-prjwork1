@@ -1,0 +1,146 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3A6C5786-1511-C08C-08C2-B31837827096" schemaObject="EF977320-FD15-FB31-87C3-A3F9734E952A" name="ORDER_ITEMS">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>ORDER_ITEMS</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:10 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ORDER_ID" id="329AF556-E39F-5B61-B40B-DCDE08A5FAF7">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>ORDER_ITEMS</sourceObjSchema>
+<sourceObjName>ORDER_ID</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,12,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B3C427C9-CD43-7D78-E635-AA505565D0D8" referredColumn="4FA4BA2C-72E1-9170-C379-CEFB1F1EE208"/>
+</associations>
+</Column>
+<Column name="ITEM_ID" id="D156CB3A-85F9-87F2-C4E7-83D952AE5236">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>ORDER_ITEMS</sourceObjSchema>
+<sourceObjName>ITEM_ID</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,12,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCT_ID" id="27D6C5D5-57CC-D27B-B163-7BC2D4D3755C">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>ORDER_ITEMS</sourceObjSchema>
+<sourceObjName>PRODUCT_ID</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,12,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1A4E9716-5890-F4F4-F495-E8877FC51D0A" referredColumn="F57BDFE0-621D-53A4-2F16-DE2C0C4661F9"/>
+</associations>
+</Column>
+<Column name="QUANTITY" id="083DA75F-05AF-C025-2CCF-F133E3EDD0ED">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>ORDER_ITEMS</sourceObjSchema>
+<sourceObjName>QUANTITY</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UNIT_PRICE" id="11913DA3-0B48-EE58-BFEF-5E6A90079839">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>ORDER_ITEMS</sourceObjSchema>
+<sourceObjName>UNIT_PRICE</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FDF3D1DC-4B4B-38A8-7D46-0B2B428AB150" name="PK_ORDER_ITEMS">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>PK_ORDER_ITEMS</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:12 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="329AF556-E39F-5B61-B40B-DCDE08A5FAF7"/>
+<colUsage columnID="D156CB3A-85F9-87F2-C4E7-83D952AE5236"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="881BC610-D580-DF19-AD65-F6CE667471F7" schemaObject="EF977320-FD15-FB31-87C3-A3F9734E952A" name="PK_ORDER_ITEMS">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>PK_ORDER_ITEMS</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="329AF556-E39F-5B61-B40B-DCDE08A5FAF7"/>
+<colUsage columnID="D156CB3A-85F9-87F2-C4E7-83D952AE5236"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7059EC2C-9E3A-DCB4-E649-DCD09101D2B5" name="FK_ORDER_ITEMS_ORDERS">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:12 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="329AF556-E39F-5B61-B40B-DCDE08A5FAF7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="45ACE8E1-5FA2-D123-D509-AEED1EC031A6" name="FK_ORDER_ITEMS_PRODUCTS">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:12 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="27D6C5D5-57CC-D27B-B163-7BC2D4D3755C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

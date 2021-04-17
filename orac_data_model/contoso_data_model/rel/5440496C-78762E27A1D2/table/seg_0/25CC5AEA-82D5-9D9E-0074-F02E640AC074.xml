@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="25CC5AEA-82D5-9D9E-0074-F02E640AC074" schemaObject="EF977320-FD15-FB31-87C3-A3F9734E952A" name="WAREHOUSES">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>WAREHOUSES</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:10 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="WAREHOUSE_ID" id="436B04B8-05BB-C42B-0C9C-60B1EE3B02F8">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>WAREHOUSES</sourceObjSchema>
+<sourceObjName>WAREHOUSE_ID</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementStartWith>10</autoIncrementStartWith>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="WAREHOUSE_NAME" id="BC8D4D27-6831-1EF9-7E2F-9B21963555F1">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>WAREHOUSES</sourceObjSchema>
+<sourceObjName>WAREHOUSE_NAME</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOCATION_ID" id="809B6C77-B6D9-5FD0-4B60-922199C35DDF">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>WAREHOUSES</sourceObjSchema>
+<sourceObjName>LOCATION_ID</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,12,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="37FF4D90-3C12-4C82-0644-3D695F32251D" referredColumn="3F1E55D6-3627-5A09-C119-279C293D84B3"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="989CEAD8-06C9-29F5-AEB5-81D4782FBC95" schemaObject="EF977320-FD15-FB31-87C3-A3F9734E952A" name="WAREHOUSES_PK">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>SYS_C0010979</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:11 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="436B04B8-05BB-C42B-0C9C-60B1EE3B02F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9A6995CE-F614-971C-77AB-DC8AE96EB684" name="FK_WAREHOUSES_LOCATIONS">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:12 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="809B6C77-B6D9-5FD0-4B60-922199C35DDF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

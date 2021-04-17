@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4BF1EB48-3024-F96E-BC98-12870883B060" containerWithKeyObject="B8BE270F-8F93-C213-89B5-F98D103F4C92" localFKIndex="0F119EB7-B0E4-7511-D374-1ED1CCB37834" name="FK_EMPLOYEES_MANAGER">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>FK_EMPLOYEES_MANAGER</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-17 15:40:12 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<referredTableLongName>CONTOSO.EMPLOYEES</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>B8BE270F-8F93-C213-89B5-F98D103F4C92</referredTableID>
+<keyObject>B764AE6F-69F0-661E-12FA-CF1F1FBB18D8</keyObject>
+<referredKeyID>B764AE6F-69F0-661E-12FA-CF1F1FBB18D8</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>EMPLOYEE_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
