@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1752EC33-F93E-5DC9-5C54-69CA5B6EAE4E" schemaObject="046E1B57-A1F8-2060-D019-AF2DDE348A5D" name="CUSTOMERS">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>CUSTOMERS</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CUSTOMER_ID" id="7CB60996-2F29-B4B4-B428-55D48CC0ECD3">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CUSTOMERS</sourceObjSchema>
+<sourceObjName>CUSTOMER_ID</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementStartWith>320</autoIncrementStartWith>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementDisableCache>false</autoIncrementDisableCache>
+<autoIncrementCache>20</autoIncrementCache>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="NAME" id="11C39862-8629-4FFE-C69D-898DCA680730">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CUSTOMERS</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADDRESS" id="C01516B1-3863-5FEF-6327-9774D0CD8178">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CUSTOMERS</sourceObjSchema>
+<sourceObjName>ADDRESS</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="WEBSITE" id="D65D0069-EE2A-F83A-BA59-60CFDBD59A4A">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CUSTOMERS</sourceObjSchema>
+<sourceObjName>WEBSITE</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREDIT_LIMIT" id="02A4DC80-39BF-D979-6707-0DF5FDB49779">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CUSTOMERS</sourceObjSchema>
+<sourceObjName>CREDIT_LIMIT</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>12</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,12,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D2C728D6-4F52-BF88-B462-7D5374CDCB3D" name="PK_CUSTOMERS_CUSTOMER_ID">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>PK_CUSTOMERS_CUSTOMER_ID</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7CB60996-2F29-B4B4-B428-55D48CC0ECD3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9EFACFDB-C075-2D7A-D159-838359380D82" schemaObject="046E1B57-A1F8-2060-D019-AF2DDE348A5D" name="PK_CUSTOMERS_CUSTOMER_ID">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>PK_CUSTOMERS_CUSTOMER_ID</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7CB60996-2F29-B4B4-B428-55D48CC0ECD3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="CONTOSO" directorySegmentName="seg_0" id="046E1B57-A1F8-2060-D019-AF2DDE348A5D">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</SchemaObject>

@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SegmentOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SegmentOraclev10g" name="Storage13" directorySegmentName="seg_0" id="871090AA-B25D-287B-6B7A-13A514FBFBF4">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<initrans>2</initrans>
+<maxTrans>255</maxTrans>
+<scInitialExtent>65536</scInitialExtent>
+<scMaxExtents>2147483645</scMaxExtents>
+<scNextExtent>1048576</scNextExtent>
+</SegmentOraclev10g>

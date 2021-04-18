@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="PRODUCT_CATEGORIES" directorySegmentName="seg_0" id="12C84E8F-A644-3472-FDF5-C1B25EF64ED3">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<schemaObject>046E1B57-A1F8-2060-D019-AF2DDE348A5D</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>A618216F-887E-A292-36B8-412680D720C3</segment>
+<tableSpace>8530A6DE-BA93-DFD7-28B9-6D7D889D4872</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CATEGORY_NAME" id="376D093C-5730-24CA-5661-4ABD4179380F">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CATEGORY_ID" id="64415596-F98F-979C-BCB6-AD2DCBC3C98A">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_PRODUCT_CATEGORIES_CATEGORY_ID" id="F97745A1-E5C0-A6A2-2DC9-CBFDA982E950">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<schemaObject>046E1B57-A1F8-2060-D019-AF2DDE348A5D</schemaObject>
+<segment>871090AA-B25D-287B-6B7A-13A514FBFBF4</segment>
+<tableSpace>8530A6DE-BA93-DFD7-28B9-6D7D889D4872</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_PRODUCT_CATEGORIES_CATEGORY_ID" id="CBFC3E60-D4E0-5804-D270-AC1D18A59D10">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<segment>871090AA-B25D-287B-6B7A-13A514FBFBF4</segment>
+<tableSpace>8530A6DE-BA93-DFD7-28B9-6D7D889D4872</tableSpace>
+<existingIndex>F97745A1-E5C0-A6A2-2DC9-CBFDA982E950</existingIndex>
+<indexSegment>871090AA-B25D-287B-6B7A-13A514FBFBF4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5D652404-8E31-83DB-1ED9-C85B8F654060" containerWithKeyObject="3C0BC8AD-1C3F-9935-6657-7C29CE3BBE2C" localFKIndex="F52983C4-202B-F961-53FB-DA23A63164F3" name="FK_ORDER_ITEMS_PRODUCTS">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>FK_ORDER_ITEMS_PRODUCTS</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:20 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<referredTableLongName>CONTOSO.PRODUCTS</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>4FF67C7F-D733-3FBD-36B1-9AD23B6BFFB3</referredTableID>
+<keyObject>C12E0198-2662-7399-EBAD-A099B54A1ED0</keyObject>
+<referredKeyID>C12E0198-2662-7399-EBAD-A099B54A1ED0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>PRODUCT_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StorageDesignOraclev12cR2 class="oracle.dbtools.crest.model.design.storage.oracle.v12cr2.StorageDesignOraclev12cR2" name="Oracle Database 12cR2" id="0EB54221-17DD-325E-990F-71EBFA9BD692" siteID="79C73AAF-E1A7-E669-7DF0-025EE81A2AFC" siteName="Oracle Database 12cR2" siteType="14">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:13 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</StorageDesignOraclev12cR2>

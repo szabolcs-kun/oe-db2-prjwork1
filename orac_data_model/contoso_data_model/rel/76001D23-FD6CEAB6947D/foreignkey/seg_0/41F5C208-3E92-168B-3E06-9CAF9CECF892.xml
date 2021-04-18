@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="41F5C208-3E92-168B-3E06-9CAF9CECF892" containerWithKeyObject="5C529E43-896E-BC87-70BB-B64E64F177F8" localFKIndex="D22FEF98-EF19-D16A-0C7C-1218B73F6915" name="FK_LOCATIONS_COUNTRIES">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>FK_LOCATIONS_COUNTRIES</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:20 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<referredTableLongName>CONTOSO.COUNTRIES</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>FC8C8E9A-D4F1-B7CD-655A-1CD484014717</referredTableID>
+<keyObject>91D40BB9-B057-6098-4955-47C8E1BEE06C</keyObject>
+<referredKeyID>91D40BB9-B057-6098-4955-47C8E1BEE06C</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>COUNTRY_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

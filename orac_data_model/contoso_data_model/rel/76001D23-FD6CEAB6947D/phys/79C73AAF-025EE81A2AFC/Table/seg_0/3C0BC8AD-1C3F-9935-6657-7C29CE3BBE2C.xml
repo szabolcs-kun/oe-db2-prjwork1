@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="ORDER_ITEMS" directorySegmentName="seg_0" id="3C0BC8AD-1C3F-9935-6657-7C29CE3BBE2C">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<schemaObject>046E1B57-A1F8-2060-D019-AF2DDE348A5D</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>A618216F-887E-A292-36B8-412680D720C3</segment>
+<tableSpace>8530A6DE-BA93-DFD7-28B9-6D7D889D4872</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ORDER_ID" id="2789399B-23EC-D38B-1537-613A7EDA3BA0">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="QUANTITY" id="36EE8242-9ED9-295F-4C10-4F86A8233699">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PRODUCT_ID" id="45E30956-6905-ED37-96D0-C618354F1E4B">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ITEM_ID" id="64DCC9BB-F20D-4CCF-8DFB-29C28CC28864">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="UNIT_PRICE" id="A65B130C-4BCE-A985-58D2-65C9A8B49BD1">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_ORDER_ITEMS_ORDER_ID_ITEM_ID" id="B96D08CF-BDD9-5BB3-0E77-81D7E6D6953D">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<schemaObject>046E1B57-A1F8-2060-D019-AF2DDE348A5D</schemaObject>
+<segment>871090AA-B25D-287B-6B7A-13A514FBFBF4</segment>
+<tableSpace>8530A6DE-BA93-DFD7-28B9-6D7D889D4872</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_ORDER_ITEMS_ORDERS" id="17502754-738B-442D-D4B2-90C22B42D103">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:20 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_ORDER_ITEMS_PRODUCTS" id="F52983C4-202B-F961-53FB-DA23A63164F3">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:20 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_ORDER_ITEMS_ORDER_ID_ITEM_ID" id="C79DDAF4-813D-CA8C-FD58-D786F03E4120">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<segment>871090AA-B25D-287B-6B7A-13A514FBFBF4</segment>
+<tableSpace>8530A6DE-BA93-DFD7-28B9-6D7D889D4872</tableSpace>
+<existingIndex>B96D08CF-BDD9-5BB3-0E77-81D7E6D6953D</existingIndex>
+<indexSegment>871090AA-B25D-287B-6B7A-13A514FBFBF4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3C1F3033-2FB0-69E4-86B6-F96069A7F970" containerWithKeyObject="C7354F2B-E4B1-D944-96E6-D12538D9EB9B" localFKIndex="54F6680D-DBE4-DE00-E55C-8F7126546D65" name="FK_WAREHOUSES_LOCATIONS">
+<sourceConnName>ora_db2-prj1</sourceConnName>
+<sourceObjSchema>CONTOSO</sourceObjSchema>
+<sourceObjName>FK_WAREHOUSES_LOCATIONS</sourceObjName>
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:20 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<referredTableLongName>CONTOSO.LOCATIONS</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>5C529E43-896E-BC87-70BB-B64E64F177F8</referredTableID>
+<keyObject>E50D3E39-0EB2-95A8-46C7-8CDC7EF2E33C</keyObject>
+<referredKeyID>E50D3E39-0EB2-95A8-46C7-8CDC7EF2E33C</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>LOCATION_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

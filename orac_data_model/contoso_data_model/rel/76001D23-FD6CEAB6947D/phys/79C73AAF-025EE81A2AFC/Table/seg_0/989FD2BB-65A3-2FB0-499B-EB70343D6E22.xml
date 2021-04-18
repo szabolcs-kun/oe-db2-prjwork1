@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="REGIONS" directorySegmentName="seg_0" id="989FD2BB-65A3-2FB0-499B-EB70343D6E22">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<schemaObject>046E1B57-A1F8-2060-D019-AF2DDE348A5D</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>A618216F-887E-A292-36B8-412680D720C3</segment>
+<tableSpace>8530A6DE-BA93-DFD7-28B9-6D7D889D4872</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="REGION_ID" id="7406F15D-DF68-772A-DF20-8EA19694399F">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="REGION_NAME" id="C392CE43-E590-D4E8-1E98-FC4B7AF1D911">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_REGIONS_REGION_ID" id="4E9BC378-C9AB-2084-124A-C8955376B4BA">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<schemaObject>046E1B57-A1F8-2060-D019-AF2DDE348A5D</schemaObject>
+<segment>871090AA-B25D-287B-6B7A-13A514FBFBF4</segment>
+<tableSpace>8530A6DE-BA93-DFD7-28B9-6D7D889D4872</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_REGIONS_REGION_ID" id="D84BFF8E-AC44-AAAE-AB54-A9FA3F360827">
+<createdBy>kunsz</createdBy>
+<createdTime>2021-04-18 18:31:19 UTC</createdTime>
+<ownerDesignName>contoso_data_model</ownerDesignName>
+<segment>871090AA-B25D-287B-6B7A-13A514FBFBF4</segment>
+<tableSpace>8530A6DE-BA93-DFD7-28B9-6D7D889D4872</tableSpace>
+<existingIndex>4E9BC378-C9AB-2084-124A-C8955376B4BA</existingIndex>
+<indexSegment>871090AA-B25D-287B-6B7A-13A514FBFBF4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

@@ -352,8 +352,8 @@ var result = mocker
   .schema("locations", location, 40)
   .schema("warehouses", warehouse, 63)
   .schema("productCategories", productCategory, 550)
-  .schema("products", product, 1000000)
-  .schema("inventories", inventory, 50)
+  .schema("products", product, 300000)
+  .schema("inventories", inventory, 800000)
   .schema("employees", employee, 150)
   .schema("customers", customer, 1000000)
   .schema("orders", order, 1000000)
@@ -380,18 +380,16 @@ for (var i = 1; i < result.employees.length; i++) {
 
 console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
 
-// Setting the names in customers with inheriting it from the contacts
+// Setting the names in customers with inheriting it from the contacts and fixing IDs
 console.log(
-  "Setting the names in customers with inheriting it from the contacts"
+  "Setting the names in customers with inheriting it from the contacts and fixing IDs"
 );
-var customerMap = new Map(result.customers.map((c) => [c.id, c]));
-for (var i = 0; i < result.contacts.length; i++) {
-  var relatedCustomer = customerMap.get(result.contacts[i].customerId);
 
-  if (relatedCustomer != undefined) {
-    result.customers[relatedCustomer.id].name =
-      result.contacts[i].firstName + " " + result.contacts[i].lastName;
-  }
+for (var i = 0; i < result.customers.length; i++) {
+
+  result.customers[i].name = result.contacts[i].firstName + " " + result.contacts[i].lastName;
+
+  result.contacts[i].customerId = result.customers[i].id;
 }
 
 console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
@@ -428,13 +426,14 @@ console.log(">>> Elapsed time:" + getTimeDiff(startDate, new Date()));
 console.log("Setting the unit_price in order items table");
 var productMap = new Map(result.products.map((p) => [p.id, p]));
 
+
 for (var i = 0; i < result.orderItems.length; i++) {
   var relatedProduct = productMap.get(result.orderItems[i].productId);
 
   if (relatedProduct != undefined) {
     result.orderItems[i].unitPrice =
       Math.random() > 0.8
-        ? relatedProduct.standardCost * (1 - randomIntFromInterval(0, 20) / 100)
+        ? Math.round(relatedProduct.standardCost * (1 - randomIntFromInterval(0, 20) / 100))
         : relatedProduct.standardCost;
   }
 }
