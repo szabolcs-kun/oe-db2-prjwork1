@@ -1,0 +1,2 @@
+select pro.product_id, pro.product_name, pro.description, pro.standard_cost, pro.list_price, proc.category_name from products pro
+inner join product_categories proc on proc.category_id = pro.category_id;
